@@ -1,0 +1,294 @@
+
+/* setting up root sytying  */
+
+:root {
+  --color-yellow: rgb(244, 208, 78);
+  --color-white: rgb(255, 255, 255);
+  --color-grey: rgb(128, 128, 128);
+  --color-black: rgb(18, 18, 18);
+}
+
+/* reseting the browser-default styles */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* setting 1rem = 10px for ease of development and measurements */
+
+html {
+  font-size: 62.5%;
+}
+
+/* setting body to flex to center the blog preveiw container */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Figtree", sans-serif;
+  position: relative;
+
+  background-color: var(--color-yellow);
+}
+
+/* setting the styles on the blog preveiw container to set background, display, padding and margin */
+
+.blog__preview-container {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  width: 38.4rem;
+  border-radius: 2rem;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 2.2rem;
+  margin: 10rem 2rem;
+
+  box-shadow: 0.8rem 0.8rem 0 var(--color-black);
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  animation: slidedown 1s ease-out;
+}
+
+/* setting the active state of the blog preveiw container */
+
+.blog__preview-container:active,
+.blog__preview-container:focus {
+  transform: translate(2px, 2px);
+  box-shadow: 1.2rem 1.2rem 0 var(--color-black);
+}
+
+/* styling the blog image container */
+
+.blog__illustration-box {
+  border-radius: 1.2rem;
+  margin-bottom: 2.4rem;
+  overflow: hidden;
+}
+
+/* styling the blog image and setting animation on it */
+
+.blog__illustration {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.2rem;
+  object-fit: cover;
+  object-position: center;
+
+  animation: moveInLeft 1s ease-out;
+  animation-fill-mode: backwards;
+  animation-delay: 1s;
+}
+
+/* styling the blog tag and setting animation on it*/
+
+.blog__tag {
+  background-color: var(--color-yellow);
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 800;
+  padding: 0.5rem 1.3rem;
+  border-radius: 3px;
+
+  margin-bottom: 1.5rem;
+
+  animation: moveInRight 0.9s ease-out;
+  animation-fill-mode: backwards;
+  animation-delay: 1.1s;
+}
+
+/* styling the blog published date and setting animation on it*/
+
+.blog__published-date {
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  margin-bottom: 1.8rem;
+
+  animation: moveInRight 0.8s ease-out;
+  animation-fill-mode: backwards;
+  animation-delay: 1.2s;
+}
+
+/* styling the blog title and setting animation on it*/
+
+.blog__title {
+  font-size: 2.4rem;
+  font-weight: 800;
+
+  margin-bottom: 1.5rem;
+
+  animation: moveInRight 0.7s ease-out;
+  animation-fill-mode: backwards;
+  animation-delay: 1.3s;
+}
+
+/* styling the blog description and setting animation on it*/
+
+
+.blog__description {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--color-grey);
+
+  animation: moveInRight 0.6s ease-out;
+  animation-fill-mode: backwards;
+  animation-delay: 1.4s;
+  margin-bottom: 2.3rem;
+}
+
+/* styling the blog author container and setting animation on it*/
+
+.blog__author {
+  display: flex;
+  align-items: center;
+
+  animation: moveInRight 0.5s ease-out;
+  animation-fill-mode: backwards;
+  animation-delay: 1.5s;
+}
+
+.blog__author-image {
+  width: 3.3rem;
+  height: 3.3rem;
+
+  margin-right: 1rem;
+}
+
+.blog__author-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+/* styling the attribution and setting animation on it*/
+
+.attribution {
+  position: absolute;
+  bottom: 2rem;
+  padding: 1rem 2rem;
+  background-color: var(--color-white);
+  border-radius: 5rem;
+  border: 1px solid var(--color-black);
+  box-shadow: 0.5rem 0.5rem 0 var(--color-black);
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  margin: 0 2rem;
+  backface-visibility: hidden;
+  animation: slideUp 1s ease;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 800;
+  color: var(--color-black);
+  padding: 0 5px;
+  border-radius: 50px;
+  transition: all 0.2s;
+}
+
+a:hover {
+  background-color: var(--color-yellow);
+  box-shadow: 2px 2px 0 var(--color-black);
+}
+
+.attribution__text {
+  animation: moveInRight 1s ease-out;
+  animation-fill-mode: backwards;
+  animation-delay: 1s;
+}
+
+/* animations to make the solution look cool */
+
+@keyframes slidedown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+    box-shadow: none;
+  }
+
+  95% {
+    transform: translateY(1rem);
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(10rem);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+/* some media queries for mobile users */
+
+@media only screen and (max-width: 420px) {
+  .blog__illustration-box {
+    height: 25rem;
+  }
+}
+
+@media only screen and (max-width: 284px) {
+  a {
+    display: block;
+    margin-top: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .blog__title {
+    font-size: 2rem;
+  }
+}
